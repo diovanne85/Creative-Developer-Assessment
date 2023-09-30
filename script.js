@@ -1,13 +1,15 @@
 function slideShow() {
 
     let content1 = document.querySelector(".image1");
-    let content2 = document.querySelector(".image2"); 
-    let content3 = document.querySelector(".image3"); 
-    let content4 = document.querySelector(".image4"); 
-    let content5 = document.querySelector(".image5"); 
-    let content6 = document.querySelector(".image6"); 
-    let content7 = document.querySelector(".image7"); 
+    let content2 = document.querySelector(".image2");
+    let content3 = document.querySelector(".image3");
+    let content4 = document.querySelector(".image4");
+    let content5 = document.querySelector(".image5");
+    let content6 = document.querySelector(".image6");
+    let content7 = document.querySelector(".image7");
 
+    
+    let content1fadein = null;
     let content1fadeOut = null;
     let content2Show = null;
     let content3Show = null;
@@ -18,19 +20,22 @@ function slideShow() {
     
 
     let position = 0;
-    let position2 = -200;
-    let position3 = 0;
+    let position2 = -900;
+    let position3 = -500;
     let opacity = 0;
     let fadeOpacity = 1;
     let fadeScale = 1;
     let content4Opacity = 0;
     let content5Opacity = 0;
     let content7Opacity = 0;
+    content1.style.display = "none";
+    content2.style.display = "none";
     content3.style.display = "none";
     content4.style.display = "none";
     content5.style.display = "none";
     content6.style.display = "none";
     content7.style.display = "none";
+    clearInterval(content1fadein);
     clearInterval(content1fadeOut);
     clearInterval(content2Show);
     clearInterval(content3Show);
@@ -38,13 +43,13 @@ function slideShow() {
     clearInterval(content5FadeIn);
     clearInterval(content6Show);
     clearInterval(content7FadeIn);
-    
-    
 
-     setTimeout(() => {
-         content1fadeOut = setInterval(animate1, 5);
-     },10);
-
+          content1.style.display = "block";
+    setTimeout(() => { 
+        content1fadeOut = setInterval(animate1, 10); 
+    }, 50);
+    
+       
     function animate1() {
         if (opacity > 1) {
             clearInterval(content1fadeOut);
@@ -54,40 +59,43 @@ function slideShow() {
                     content1.style.opacity = fadeOpacity;
                 } else {
                     content1.style.opacity = 0;
+                    clearInterval(content1fadein);
                 }
             }, 10);
             if (content1.style.opacity < 0) {
                 clearInterval(content1fadeOut);
+                content1.style.display = "none";
             }
          } else {
             content1.style.opacity = opacity;
             opacity += 0.01;
+            content2.style.display = "block";
          }
     }
         setTimeout(() => {
-            content2Show = setInterval(animate2, 5);
-        },10);  
+            content2Show = setInterval(animate2, 10);  
+        },50);  
 
     function animate2() {
-      if (position < 10) {
+      if (position < 110) {
         position++;
         content2.style.left = `${position}px`;
       } else if (fadeScale > 0) {
         fadeScale -= 0.01;
         content2.style.scale = fadeScale;
       } else {
-        clearInterval(content2Show);
+          clearInterval(content2Show);
           content3.style.display = "block";
-                
-        }
+                   
+     }
     
     }    
         setTimeout(() => {
-          content3Show = setInterval(animate3, 5);
-        },10);
+            content3Show = setInterval(animate3, 2); 
+        },50);
     
     function animate3() {
-        if (position2 < 50) {
+        if (position2 < 150) {
             position2++;
             content3.style.right = `${position2}px`;
         } else {
@@ -107,73 +115,82 @@ function slideShow() {
                         } else {
                             clearInterval(content5FadeIn);
                             content6.style.display = "block";
-                          content6Show = setInterval(animate4, 5);
                         }
-                    }, 10);
+                    }, 15);
                 }
             },10);
 
         }
-
+            
     }
+   
     setTimeout(() => { 
-        content6Show = setInterval(animate3, 5);
-    },10);
+        content6Show = setInterval(animate4, 10);
+    },50);
     
     function animate4() {
-        if (position3 < 520) {
+        if (position3 < 620) {
             position3++;
             content6.style.left = `${position3}px`;
         } else {
             clearInterval(content6Show);
             content7.style.display = "block";
         }
-        let content7FadeIn = setInterval(() => {
-            if (content7Opacity < 1) {
-                content7Opacity += 0.01;
-                content7.style.opacity = content7Opacity;     
-            }
-        },10);
+    }
+    setTimeout(() => {
+        content7FadeIn = setInterval(animate5, 15);
+    }, 50);
+
+    function animate5() {
+        if (content7Opacity < 1) {
+          content7Opacity += 0.01;
+          content7.style.opacity = content7Opacity;
+        } else {
+          clearInterval(content7FadeIn);
+        }
     
     }
-    const replayBtn = document.querySelector("#replayButton");
-
-     replayBtn.addEventListener("click", function () {
-     
-       let content1 = document.querySelector(".image1");
-       let content2 = document.querySelector(".image2");
-       let content3 = document.querySelector(".image3");
-       let content4 = document.querySelector(".image4");
-       let content5 = document.querySelector(".image5");
-       let content6 = document.querySelector(".image6");
-       let content7 = document.querySelector(".image7");
-
-      
-       clearInterval(content1fadeOut);
-       clearInterval(content2Show);
-       clearInterval(content3Show);
-       clearInterval(content4FadeIn);
-       clearInterval(content5FadeIn);
-       clearInterval(content6Show);
-       clearInterval(content7FadeIn);
-
-       content1.style.opacity = 1;
-       content2.style.left = "0";
-       content2.style.transform = "scale(1)";
-       content3.style.right = "0";
-       content3.style.display = "none";
-       content4.style.opacity = 0;
-       content4.style.display = "none";
-       content5.style.opacity = 0;
-       content5.style.display = "none";
-       content6.style.left = "0";
-       content6.style.display = "none";
-       content7.style.display = "none";
-       content7.style.opacity = 0;
+    const replaySlide = document.getElementById("resetButton");
+    replaySlide.addEventListener("click", () => {
         
-       slideShow();
-    });
+         content1fadein = null;
+         content1fadeOut = null;
+         content2Show = null;
+         content3Show = null;
+         content4FadeIn = null;
+         content5FadeIn = null;
+         content6Show = null;
+         content7FadeIn = null;
 
-  
+         content1.style.display = "none";
+         content2.style.display = "none";
+         content3.style.display = "none";
+         content4.style.display = "none";
+         content5.style.display = "none";
+         content6.style.display = "none";
+         content7.style.display = "none";
+        
+            position = 0;
+            position2 = -900;
+            position3 = -500;
+            opacity = 0;
+            fadeOpacity = 1;
+            fadeScale = 1;
+            content4Opacity = 0;
+            content5Opacity = 0;
+            content7Opacity = 0;
+        
+         clearInterval(content1fadein);
+         clearInterval(content1fadeOut);
+         clearInterval(content2Show);
+         clearInterval(content3Show);
+         clearInterval(content4FadeIn);
+         clearInterval(content5FadeIn);
+         clearInterval(content6Show);
+        clearInterval(content7FadeIn);
+        
+        slideShow();
+    })
+     
 }
 slideShow();   
