@@ -28,11 +28,11 @@ body{
 }
 .image2{
     position: absolute;
-    top: 0;
+    top: -10rem;
     bottom: 0;
     right: 0;
-    left: 0;
-    padding-top: 15px; 
+    left: -15rem;
+    
 } 
 
 .image3{
@@ -63,7 +63,16 @@ body{
    
 }
 .image7{
+    width: 9rem;
+    height: 5rem;
+    border: none;
+    border-radius: 5%;
+    background-image: url('replay.png');
+    background-position-x:-135px;
+    background-position-y:-13px;
+    background-size: calc(440px);
+    background-repeat: no-repeat;
     position: absolute;
-     bottom: 17rem;
-    left:20rem;
+     bottom: 19rem;
+    left:30rem;
 }

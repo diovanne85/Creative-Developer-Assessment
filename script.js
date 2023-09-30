@@ -11,7 +11,7 @@ function slideShow(){
     let content2Show = null;
     let content3Show = null;
     let content4FadeIn = null;
-    let content5FadeIn = null;
+        content5FadeIn = null;
     let content6Show = null;
     let content7FadeIn = null;
     
@@ -21,6 +21,7 @@ function slideShow(){
     let position3 = 0;
     let opacity = 0;
     let fadeOpacity = 1;
+    let fadeScale = 1;
     let content4Opacity = 0;
     let content5Opacity = 0;
     let content7Opacity = 0;
@@ -61,25 +62,29 @@ function slideShow(){
          }
     }
         setTimeout(() => {
-            content2Show = setInterval(animate2, 5);
-        }, 15);  
+            content2Show = setInterval(animate2, 20);
+        },10);  
 
     function animate2() {
-      if (position < 300) {
+      if (position < 10) {
         position++;
         content2.style.left = `${position}px`;
-      } else if (fadeOpacity > 0) {
-        fadeOpacity -= 0.01;
-        content2.style.opacity = fadeOpacity;
+      } else if (fadeScale > 0) {
+        fadeScale -= 0.01;
+        content2.style.scale = fadeScale;
       } else {
         clearInterval(content2Show);
-          content2.style.opacity = 0;
           content3.style.display = "block";
-          content3Show = setInterval(animate3, 5);   
-      }
-    }
+                
+        }
+    
+    }    
+        setTimeout(() => {
+          content3Show = setInterval(animate3, 5);
+        }, 10);
+    
     function animate3() {
-        if (position2 < 90) {
+        if (position2 < 50) {
             position2++;
             content3.style.right = `${position2}px`;
         } else {
@@ -98,16 +103,20 @@ function slideShow(){
                           content5.style.opacity = content5Opacity;
                         } else {
                           clearInterval(content5FadeIn);
-                          content6.style.display = "block";
                           content6Show = setInterval(animate4, 5);
                         }
-                      }, 10);
+                    }, 30);
                 }
             }, 10);
 
         }
 
     }
+    setTimeout(() => {
+        content6.style.display = "block";
+        content6Show = setInterval(animate3, 5);
+    }, 4000);
+    
     function animate4() {
         if (position3 < 530) {
             position3++;
@@ -121,12 +130,16 @@ function slideShow(){
                 content7Opacity += 0.01;
                 content7.style.opacity = content7Opacity;
             } else {
-                clearInterval(content5FadeIn);
+                content7.addEventListener("click", function () {
+                         clearInterval(content7FadeIn);
+                }) 
+                let content7FadeIn = content7.addEventListener("click", function () {
+                    onclick ="replay"
+                })
             }
         }, 10);
     }
-  
-     
-
+   
 }
 slideShow()
+   
