@@ -1,4 +1,5 @@
-function slideShow(){
+function slideShow() {
+
     let content1 = document.querySelector(".image1");
     let content2 = document.querySelector(".image2"); 
     let content3 = document.querySelector(".image3"); 
@@ -11,7 +12,7 @@ function slideShow(){
     let content2Show = null;
     let content3Show = null;
     let content4FadeIn = null;
-        content5FadeIn = null;
+    let content5FadeIn = null;
     let content6Show = null;
     let content7FadeIn = null;
     
@@ -29,18 +30,20 @@ function slideShow(){
     content4.style.display = "none";
     content5.style.display = "none";
     content6.style.display = "none";
-    content7.style.visibility = "hidden";
+    content7.style.display = "none";
     clearInterval(content1fadeOut);
     clearInterval(content2Show);
     clearInterval(content3Show);
     clearInterval(content4FadeIn);
     clearInterval(content5FadeIn);
     clearInterval(content6Show);
-     clearInterval(content7FadeIn);
+    clearInterval(content7FadeIn);
+    
+    
 
-    setTimeout(() => {
-        content1fadeOut = setInterval(animate1, 15);
-    }, 15);
+     setTimeout(() => {
+         content1fadeOut = setInterval(animate1, 5);
+     },10);
 
     function animate1() {
         if (opacity > 1) {
@@ -62,7 +65,7 @@ function slideShow(){
          }
     }
         setTimeout(() => {
-            content2Show = setInterval(animate2, 20);
+            content2Show = setInterval(animate2, 5);
         },10);  
 
     function animate2() {
@@ -81,7 +84,7 @@ function slideShow(){
     }    
         setTimeout(() => {
           content3Show = setInterval(animate3, 5);
-        }, 10);
+        },10);
     
     function animate3() {
         if (position2 < 50) {
@@ -102,58 +105,75 @@ function slideShow(){
                           content5Opacity += 0.01;
                           content5.style.opacity = content5Opacity;
                         } else {
-                          clearInterval(content5FadeIn);
+                            clearInterval(content5FadeIn);
+                            content6.style.display = "block";
                           content6Show = setInterval(animate4, 5);
                         }
-                    }, 30);
+                    }, 10);
                 }
-            }, 10);
+            },10);
 
         }
 
     }
-    setTimeout(() => {
-        content6.style.display = "block";
+    setTimeout(() => { 
         content6Show = setInterval(animate3, 5);
-    }, 4000);
+    },10);
     
     function animate4() {
-        if (position3 < 530) {
+        if (position3 < 520) {
             position3++;
             content6.style.left = `${position3}px`;
         } else {
             clearInterval(content6Show);
-            content7.style.visibility = "visible";
+            content7.style.display = "block";
         }
         let content7FadeIn = setInterval(() => {
             if (content7Opacity < 1) {
                 content7Opacity += 0.01;
-                content7.style.opacity = content7Opacity;
-            } 
-        }, 10);
+                content7.style.opacity = content7Opacity;     
+            }
+        },10);
     
     }
+    const replayBtn = document.querySelector("#replayButton");
+
+     replayBtn.addEventListener("click", function () {
      
-}
-slideShow()
+       let content1 = document.querySelector(".image1");
+       let content2 = document.querySelector(".image2");
+       let content3 = document.querySelector(".image3");
+       let content4 = document.querySelector(".image4");
+       let content5 = document.querySelector(".image5");
+       let content6 = document.querySelector(".image6");
+       let content7 = document.querySelector(".image7");
+
+      
+       clearInterval(content1fadeOut);
+       clearInterval(content2Show);
+       clearInterval(content3Show);
+       clearInterval(content4FadeIn);
+       clearInterval(content5FadeIn);
+       clearInterval(content6Show);
+       clearInterval(content7FadeIn);
+
+       content1.style.opacity = 1;
+       content2.style.left = "0";
+       content2.style.transform = "scale(1)";
+       content3.style.right = "0";
+       content3.style.display = "none";
+       content4.style.opacity = 0;
+       content4.style.display = "none";
+       content5.style.opacity = 0;
+       content5.style.display = "none";
+       content6.style.left = "0";
+       content6.style.display = "none";
+       content7.style.display = "none";
+       content7.style.opacity = 0;
+        
+       slideShow();
+    });
+
   
-
-function replaySlideshow() {
-     content3.style.display = "none";
-     content4.style.display = "none";
-     content5.style.display = "none";
-     content6.style.display = "none";
-     content7.style.visibility = "hidden";
-     clearInterval(content1fadeOut);
-     clearInterval(content2Show);
-     clearInterval(content3Show);
-     clearInterval(content4FadeIn);
-     clearInterval(content5FadeIn);
-     clearInterval(content6Show);
-     clearInterval(content7FadeIn);
-   
 }
-
-function replayBtn() {
-    document.querySelector(".img-container") = replaySlideshow;
-}
+slideShow();   
