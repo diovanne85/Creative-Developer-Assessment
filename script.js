@@ -16,7 +16,7 @@ function slideShow() {
   let content6Show = null;
   let content7FadeIn = null;
 
-  let position = 0;
+  let position = -120;
   let position2 = -1150;
   let position3 = -900;
   let opacity = 0;
@@ -42,8 +42,8 @@ function slideShow() {
 
   content1.style.display = "block";
   setTimeout(() => {
-    content1fadeOut = setInterval(animate1, 10);
-  }, 50);
+    content1fadeOut = setInterval(animate1, 7);
+  }, 20);
 
   function animate1() {
     if (fadeOpacity > 1) {
@@ -57,7 +57,7 @@ function slideShow() {
           clearInterval(content1fadeIn);
           content2.style.display = "block";
         }
-      }, 20);
+      }, 35);
       if (content1.style.opacity < 0) {
         clearInterval(content1fadeOut);
         content1.style.display = "none";
@@ -69,11 +69,11 @@ function slideShow() {
     }
   }
   setTimeout(() => {
-    content2Show = setInterval(animate2, 10);
-  }, 50);
+    content2Show = setInterval(animate2, 8);
+  }, 10);
 
   function animate2() {
-    if (position < 110) {
+    if (position < 120) {
       position++;
       content2.style.left = `${position}px`;
     } else if (fadeScale > 0) {
@@ -110,9 +110,9 @@ function slideShow() {
               clearInterval(content5FadeIn);
               content6.style.display = "block";
             }
-          }, 5);
+          }, 100);
         }
-      }, 10);
+      }, 100);
     }
   }
 
