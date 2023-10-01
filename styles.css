@@ -1,80 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    background-color: black;
-
- 
+body {
+  background-color: black;
 }
-.container{
-     background-image: url('background.png');
-     background-size: cover;
-     background-repeat: no-repeat;
-     width: 1200px;
-     height: 1200px;
-     margin: 0 auto;
-     position: relative;
+.container {
+  background-image: url("background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 1200px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.image1{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:0 auto;
+.image1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
-.image2{
-    position: absolute;
-    top: -10rem;
-    bottom: 0;
-    right: 0;
-    left: -7rem;
-    
-} 
-
-.image3{
-    position: absolute;
-    top: -20rem;
-    right: -33rem;
-    
-}
-.image4{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-}
-.image5{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    top: 40rem;
+.image2 {
+  position: absolute;
+  top: -10rem;
+  bottom: 0;
+  right: 0;
+  left: -7rem;
 }
 
-.image6{
-    position: absolute;
-     top: -5rem;
-    left: -4rem;
-   
+.image3 {
+  position: absolute;
+  top: -20rem;
+  right: -33rem;
 }
-.image7{
-    cursor: pointer;
-    width: 9rem;
-    height: 5rem;
-    border: none;
-    border-radius: 5%;
-    background-image: url('replay.png');
-    background-position-x:-135px;
-    background-position-y:-13px;
-    background-size: calc(440px);
-    background-repeat: no-repeat;
-    position: absolute;
-     bottom: 19rem;
-    left:33rem;
+.image4 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.image5 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: 40rem;
+}
+
+.image6 {
+  position: absolute;
+  top: -5rem;
+  left: -4rem;
+}
+.image7 {
+  cursor: pointer;
+  width: 9rem;
+  height: 5rem;
+  border: none;
+  border-radius: 5%;
+  background-image: url("replay.png");
+  background-position-x: -135px;
+  background-position-y: -13px;
+  background-size: calc(440px);
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 19rem;
+  left: 33rem;
 }
