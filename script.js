@@ -17,8 +17,8 @@ function slideShow() {
   let content7FadeIn = null;
 
   let position = 0;
-  let position2 = -900;
-  let position3 = -500;
+  let position2 = -1150;
+  let position3 = -900;
   let opacity = 0;
   let fadeOpacity = 1;
   let fadeScale = 1;
@@ -89,7 +89,7 @@ function slideShow() {
   }, 50);
 
   function animate3() {
-    if (position2 < 150) {
+    if (position2 < -150) {
       position2++;
       content3.style.right = `${position2}px`;
     } else {
@@ -117,8 +117,8 @@ function slideShow() {
   }
 
   setTimeout(() => {
-    content6Show = setInterval(animate4, 10);
-  }, 50);
+    content6Show = setInterval(animate4, 2);
+  }, 40);
 
   function animate4() {
     if (position3 < 620) {
